@@ -32,21 +32,21 @@ class Hall:
 
     def book_seats(self, movie_id, book_the_seats):
         if movie_id not in self.seats:
-            print("Invalid show ID. Try again.😒")
+            print("Invalid show ID. Try again.")
             return False
 
         for row, col in book_the_seats:
             if not (0 <= row <= self.rows) or not (0 <= col < self.cols):
-                print("Invalid number.😎")
+                print("Invalid number.")
                 return False
 
             if self.seats[movie_id][row][col] == 'booked':
-                print("seat already booked.😁")
+                print("seat already booked.")
                 return False
 
             self.seats[movie_id][row][col] = 'booked'
 
-        #! print("Booked successfully. ✌️")
+        #! print("Booked successfully. ")
         return True
 
     def view_show_list(self):
@@ -57,13 +57,15 @@ class Hall:
     def view_available_seats(self, movie_id):
         # print(f"Available seats for {movie_id}: {self.seats}")
         if movie_id not in self.seats:
-            print(f"no show found with this ID -> 🥲. {movie_id}")
+            print(f"no show found with this ID -> . {movie_id}")
             return False
 
         #! break
 
         # !else:
-        print(f"Available seats for this ID -> 👌 {movie_id}")
+        print(
+            # f"Available seats for this movie -> {movie_name} ID -> 👌 {movie_id}")
+            f"Available seats for this ID -> 👌 {movie_id}")
         seats_info = self.seats[movie_id]
 
         for row in range(self.rows):
@@ -81,10 +83,10 @@ class Hall:
 hall_1 = Hall(rows=5, cols=5, hall_no=1)
 # !hall_2 = Hall(rows=5, cols=5, hall_no=2)
 
-# hall_1.entry_show("1", "Avangers", "12:00")
+# hall_1.entry_show("S", "Avangers", "12:00")
 #! hall_2.entry_show("2", "Avangers_2", "12:00")
 
-hall_1.entry_show("1", "Avangers", "2023-11-23", "12:00")
+hall_1.entry_show("S1", "Avangers", "2023-11-23", "12:00")
 # !hall_2.entry_show("1", "Avangers_2", "2023-11-23", "12:00")
 #! hall_2.entry_show("2", "Avangers_2", "2023-11-23", "12:00")
 
@@ -132,7 +134,7 @@ def main():
                     row = int(
                         input("Enter the row number there you want to sit (row->5): "))-1
                     col = int(
-                        input("Enter the column number there you want to sit (row->5): "))-1
+                        input("Enter the column number there you want to sit (column->5): "))-1
 
                 book_the_seats.append((row, col))
 
@@ -159,5 +161,4 @@ def main():
             print("Invalid choice")
 
 
-if __name__ == "__main__":
-    main()
+main()
